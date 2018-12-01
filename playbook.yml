@@ -60,3 +60,20 @@
       yum:
         name: kube*
         state: removed
+    - name: remove kubernetes configuration
+      file:
+        path: /etc/kubernetes
+        state: absent
+
+- hosts: all
+  gather_facts: no
+  tasks:
+    - name: remove glusterfs
+      yum:
+        name: gluster*
+        state: removed
+    - name: remove gluster image file
+      file:
+        path: ~/gluster*.img
+        state: absent
+
