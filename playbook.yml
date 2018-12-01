@@ -17,3 +17,8 @@
     service:
       name: kubelet
       state: stopped
+
+- hosts: docker
+  tasks:
+    - name: stop all running docker containers
+      shell: 'sudo docker stop $(sudo docker ps -a -q)'
