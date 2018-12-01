@@ -10,3 +10,10 @@
     service: 
       name: etcd
       state: stopped
+
+- hosts: kubernetes
+  tasks:
+  - name: stop the kubelet service on the kubernetes nodes
+    service:
+      name: kubelet
+      state: stopped
