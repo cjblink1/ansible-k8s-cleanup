@@ -1,5 +1,6 @@
 ---
-- tasks:
+- hosts: all
+  tasks:
   - name: stop the etcd service on the etcd nodes
     service: 
       name: etcd
