@@ -1,12 +1,12 @@
 ---
 - hosts: all
-  gather_facts: {{ gather_facts }}
+  gather_facts: "{{ gather_facts }}"
   tasks:
   - name: make sure all nodes are online
     ping:
 
 - hosts: etcd
-  gather_facts: {{ gather_facts }}
+  gather_facts: "{{ gather_facts }}"
   tasks:
   - name: stop the etcd service on the etcd nodes
     service: 
@@ -14,7 +14,7 @@
       state: stopped
 
 - hosts: kubernetes
-  gather_facts: {{ gather_facts }}
+  gather_facts: "{{ gather_facts }}"
   tasks:
   - name: stop the kubelet service on the kubernetes nodes
     service:
@@ -22,7 +22,7 @@
       state: stopped
 
 - hosts: docker
-  gather_facts: {{ gather_facts }}
+  gather_facts: "{{ gather_facts }}"
   tasks:
     - name: does the machine have docker?
       shell: which docker
