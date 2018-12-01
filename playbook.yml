@@ -21,8 +21,10 @@
 - hosts: docker
   tasks:
     - name: does the machine have docker?
-      shell: rpm -q docker 
+      yum: 
+        name: docker-ce
       register: has_docker
+      ignore_errors: yes
     - name: stop all running docker containers
       shell: 'sudo docker stop $(sudo docker ps -a -q)'
       when: has_docker.rc == 0
