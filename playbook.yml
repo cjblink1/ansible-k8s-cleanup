@@ -77,3 +77,19 @@
         path: ~/gluster*.img
         state: absent
 
+- hosts: lb
+  gather_facts: no
+  tasks:
+    - name: remove haproxy
+      yum:
+        name: haproxy*
+        state: removed
+
+- hosts: all
+  gather_facts: no
+  tasks:
+    - name: put selinux in permissive mode
+      selinux:
+        policy: targeted
+        state: permissive
+
