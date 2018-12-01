@@ -20,8 +20,9 @@
 
 - hosts: docker
   tasks:
-    - name: get docker version
+    - name: does the machine have docker?
       shell: which docker
-      register: result
+      register: has_docker
     - name: stop all running docker containers
       shell: 'sudo docker stop $(sudo docker ps -a -q)'
+      when: has_docker.rc == 0
