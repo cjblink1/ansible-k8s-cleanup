@@ -39,4 +39,4 @@
     - name: uninstall docker
       yum:
         name: docker-ce
-        state: absent
+        state: removed
