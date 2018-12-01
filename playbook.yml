@@ -1,6 +1,8 @@
 ---
 - hosts: all
   tasks:
+  - name: make sure all nodes are online
+    ping:
   - name: stop the etcd service on the etcd nodes
     service: 
       name: etcd
