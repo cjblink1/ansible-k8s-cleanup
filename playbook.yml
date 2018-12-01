@@ -27,3 +27,12 @@
     - name: stop all running docker containers
       shell: 'sudo docker stop $(sudo docker ps -a -q)'
       when: has_docker.rc == 0
+      ignore_errors: yes
+    - name: kill all docker containers
+      shell: 'sudo docker kill $(sudo docker ps -a -q)'
+      when: has_docker.rc == 0
+      ignore_errors: yes
+    - name: remove all docker containers
+      shell: 'sudo docker rm $(sudo docker ps -a -q)'
+      when: has_docker.rc == 0
+      ignore_errors: yes
