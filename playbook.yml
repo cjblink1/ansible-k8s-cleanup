@@ -36,3 +36,7 @@
       shell: 'sudo docker rm $(sudo docker ps -a -q)'
       when: has_docker.rc == 0
       ignore_errors: yes
+    - name: uninstall docker
+      yum:
+        name: docker-ce
+        state: absent
