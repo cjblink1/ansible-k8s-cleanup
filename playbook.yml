@@ -44,3 +44,19 @@
       yum:
         name: docker*
         state: removed
+
+- hosts: etcd
+  gather_facts: no
+  tasks:
+    - name: uninstall etcd
+      yum:
+        name: etcd*
+        state: removed
+
+- hosts: kubernetes
+  gather_facts: no
+  tasks: 
+    - name: uninstall kubernetes
+      yum:
+        name: kube*
+        state: removed
