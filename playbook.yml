@@ -21,7 +21,7 @@
 - hosts: docker
   tasks:
     - name: does the machine have docker?
-      shell: which docker
+      shell: rpm -q docker 
       register: has_docker
     - name: stop all running docker containers
       shell: 'sudo docker stop $(sudo docker ps -a -q)'
