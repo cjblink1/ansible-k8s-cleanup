@@ -38,5 +38,5 @@
       ignore_errors: yes
     - name: uninstall docker
       yum:
-        name: docker-ce
+        name: docker*
         state: removed
