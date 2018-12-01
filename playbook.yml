@@ -20,5 +20,8 @@
 
 - hosts: docker
   tasks:
+    - name: get docker version
+      shell: which docker
+      register: result
     - name: stop all running docker containers
       shell: 'sudo docker stop $(sudo docker ps -a -q)'
