@@ -21,8 +21,7 @@
 - hosts: docker
   tasks:
     - name: does the machine have docker?
-      yum: 
-        name: docker-ce
+      shell: which docker
       register: has_docker
       ignore_errors: yes
     - name: stop all running docker containers
