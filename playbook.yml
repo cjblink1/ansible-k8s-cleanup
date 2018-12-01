@@ -96,9 +96,5 @@
       service:
         name: firewalld
         state: stopped
-    - name: disable firewall
-      service:
-        name: firewalld
-        state: disabled
   
 
