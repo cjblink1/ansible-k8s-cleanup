@@ -98,5 +98,3 @@
         state: stopped
     - name: reboot machines
       reboot:
-  
-
