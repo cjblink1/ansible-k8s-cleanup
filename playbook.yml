@@ -96,5 +96,7 @@
       service:
         name: firewalld
         state: stopped
+    - name: reboot machines
+      reboot:
   
 
