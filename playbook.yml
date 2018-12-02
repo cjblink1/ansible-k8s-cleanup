@@ -8,10 +8,11 @@
 - hosts: etcd
   gather_facts: no
   tasks:
-  - name: stop the etcd service on the etcd nodes
+  - name: stop and disable the etcd service on the etcd nodes
     service: 
       name: etcd
       state: stopped
+      enabled: no
 
 - hosts: kubernetes
   gather_facts: no
@@ -20,6 +21,7 @@
     service:
       name: kubelet
       state: stopped
+      enabled: no
 
 - hosts: docker
   gather_facts: no
