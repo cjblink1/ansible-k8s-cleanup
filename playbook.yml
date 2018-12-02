@@ -98,3 +98,4 @@
         state: stopped
     - name: reboot machines
       reboot:
+        reboot_timeout: 600
