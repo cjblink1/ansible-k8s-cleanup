@@ -88,14 +88,15 @@
 - hosts: all
   gather_facts: no
   tasks:
-    - name: reboot machines
-      reboot:
-        reboot_timeout: 600
     - name: put selinux in permissive mode
       selinux:
         policy: targeted
         state: permissive
-    - name: stop firewall
+    - name: stop and disable firewall
       service:
         name: firewalld
         state: stopped
+        enabled: no
+    - name: reboot machines
+      reboot:
+        reboot_timeout: 600
